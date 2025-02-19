@@ -4,6 +4,6 @@
 
 <configuration>
 	<typeAliases>
-		<typeAlias alias="User" type="com.oracle.todoList.model.User_table"/>
+		<typeAlias alias="User" type="com.oracle.todoList.model.User_Table"/>
 	</typeAliases>
 </configuration>
