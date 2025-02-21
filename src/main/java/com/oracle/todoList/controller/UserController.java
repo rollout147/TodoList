@@ -4,6 +4,7 @@ import org.apache.catalina.manager.util.SessionUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -82,7 +83,26 @@ public class UserController {
 	}
 	
 	// 회원가입
-	
+	@PostMapping(value = "join")
+	public String join(@ModelAttribute User_Table user_table, Model model) {
+		System.out.println("UserController join Start...");
+		System.out.println("UserController join user_table->"+user_table);
+		
+		int joinUser = us.join(user_table);
+		System.out.println("UserController join joinUser->"+joinUser);
+		
+		if (joinUser > 0) {
+			System.out.println("UserController join Success");
+			return "joinSuccess";
+			
+		} else {
+			model.addAttribute("msg", "회원가입에 실패하였습니다.");
+			System.out.println("UserController join Failed");
+			return "redirect:/";
+		}
+		
+			
+	}
 	
 	
 	// 아이디 찾기
