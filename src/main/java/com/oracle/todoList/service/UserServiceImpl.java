@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
+	// 로그인
 	@Override
 	public User_Table login(String user_id, String user_pw) {
 		// TODO Auto-generated method stub

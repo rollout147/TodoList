@@ -22,13 +22,18 @@
 				<input type="submit"	value="로그인">
 			</form>
 			
-			<ul class="menu">
-				<li><a href="/join">회원가입</a>
-				<li><span>&nbsp;|&nbsp;</span></li>
-				<li><a href="/findId">아이디 찾기</a>
-				<li><span>&nbsp;|&nbsp;</span></li>
-				<li><a href="/findPw">비밀번호 찾기</a>
-			</ul>
+			<button class="but_join">
+				<a href="/join">회원가입</a>
+			</button>
+			
+			<button class="but_findId">
+				<a href="/findId">아이디 찾기</a>
+			</button>
+			
+			<button class="but_findPw">
+				<a href="/findPw">비밀번호 찾기</a>
+			</button>
+						
 		</div>
 	</div>
 </body>

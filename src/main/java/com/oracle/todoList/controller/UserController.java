@@ -70,6 +70,17 @@ public class UserController {
 		return "redirect:/";
 	}
 	
+	// 로그아웃
+	@GetMapping(value = "logout")
+	public String logout(HttpSession session, Model model) {
+		System.out.println("UserController logout Start...");
+		
+		session.invalidate();
+		System.out.println("UserController logout Success");
+		
+		return "redirect:/";
+	}
+	
 	// 회원가입
 	
 	
