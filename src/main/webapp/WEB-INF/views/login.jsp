@@ -23,7 +23,7 @@
 			</form>
 			
 			<button class="but_join">
-				<a href="/join">회원가입</a>
+				<a href="/joinInfo">회원가입</a>
 			</button>
 			
 			<button class="but_findId">

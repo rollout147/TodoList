@@ -8,6 +8,8 @@
 </head>
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
+
+	// 아이디 중복확인
 	function confirmId() {
 		if (!validateId()) return;
 	
@@ -29,6 +31,17 @@
 			}
 		});
 	}
+	
+	// 이메일 주소 가져오기
+	$("#user_email").blur(function() {
+		email();
+	});
+	
+	$("#email_address").change(function(){
+		email();
+	});
+	
+	
 	
 </script>	
 <body>
@@ -60,14 +73,20 @@
 				<label for="user_email">이메일</label>
 				<input type="text" id="user_email" name="user_email">
 				&nbsp;@&nbsp;
-				<input type="text" id="user_email3" name="selboxDirect" />
-					<select id="user_email2" name="email_domain">
+				<input type="text" id="email_address" name="email_address" list="email_address"/>
+					<datalist id="user_email2">
 						<option value="naver.com">naver.com</option>
 						<option value="naver.com">daum.net</option>
 						<option value="naver.com">gmail.com</option>
 						<option value="hanmail.net">hanmail.net</option>
-						<option value="direct">직접입력</option>
-					</select>
+					</datalist>
+					<input type="hidden" id="tatalEmail" name="tatalEmail" value="">
+			</div>
+			
+			<div class="submitBut">
+				<a href="/joinInfo">
+					<button type="submit" id="submitBut">가입하기</button>
+				</a>
 			</div>
 		</form>
 		

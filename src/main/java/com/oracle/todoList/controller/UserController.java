@@ -82,7 +82,16 @@ public class UserController {
 		return "redirect:/";
 	}
 	
-	// 회원가입
+	// 회원가입시 정보 입력
+	@GetMapping(value = "joinInfo")
+	public String joinInfo() {
+		System.out.println("UserController joinInfo Start...");
+		
+		return "joinInfo";
+	}
+	
+	
+	// 회원가입 버튼
 	@PostMapping(value = "join")
 	public String join(@ModelAttribute User_Table user_table, Model model) {
 		System.out.println("UserController join Start...");
