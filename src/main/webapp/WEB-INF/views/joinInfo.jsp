@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,6 @@
 </head>
 <script type="text/javascript" src="/js/jquery.js"></script>
 <script type="text/javascript">
-
 	// 아이디 중복확인
 	function confirmId() {
 		if (!validateId()) return;
@@ -31,17 +30,21 @@
 			}
 		});
 	}
-	
+
 	// 이메일 주소 가져오기
-	$("#user_email").blur(function() {
-		email();
-	});
-	
-	$("#email_address").change(function(){
-		email();
-	});
-	
-	
+
+    $(function() {
+        $('#selectEmail').change(function() {
+            if ($('#selectEmail').val() == 'directly') {
+                $('#textEmail').attr("disabled", false);
+                $('#textEmail').val("");
+                $('#textEmail').focus();
+            } else {
+                $('#textEmail').val($('#selectEmail').val());
+            }
+        })
+    });
+
 	
 </script>	
 <body>
@@ -71,16 +74,20 @@
 			
 			<div class="email">
 				<label for="user_email">이메일</label>
-				<input type="text" id="user_email" name="user_email">
+				<input type="text" id="user_email" name="user_email" placeholder="이메일 아이디">
+				
 				&nbsp;@&nbsp;
-				<input type="text" id="email_address" name="email_address" list="email_address"/>
-					<datalist id="user_email2">
-						<option value="naver.com">naver.com</option>
-						<option value="naver.com">daum.net</option>
-						<option value="naver.com">gmail.com</option>
-						<option value="hanmail.net">hanmail.net</option>
-					</datalist>
-					<input type="hidden" id="tatalEmail" name="tatalEmail" value="">
+				
+				<input type="text" id="textEmail" name="email_address" placeholder="이메일을 선택하세요"/>
+				<select class="emailAddress" id="selectEmail">
+					<option value="">이메일 선택</option>
+					<option value="naver.com">naver.com</option>
+					<option value="gmail.com">gmail.com</option>
+					<option value="hanmail.net">hanmail.net</option>
+					<option value="directly" id="textEmail">직접입력</option>
+				</select>
+				
+				<input type="hidden" id="totalEmail" name="totalEmail" value="">
 			</div>
 			
 			<div class="submitBut">
